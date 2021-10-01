@@ -190,7 +190,7 @@ def make_selection(options, message):
         selection = input('Make selection to proceed or (c)ancel: ')
         print('')
         if selection.lower() == 'c':
-            print('Info: Canceled on user request.')
+            print('Info: Canceled on user request. Exiting')
             quit()
         else:
             try:
@@ -256,10 +256,13 @@ if __name__ == '__main__':
     process = setup_process(argv)
     check_privileges()
     check_requirements()
-    final_confirmation(process['source'], process['action'], process['target'])
-
-    if execute(process):
-        output = f"{process['source']} {process['action']} to {process['target']} successful."
-        print(len(output) * '*')
-        print(output)
-        print(len(output) * '*')
+    proceed = final_confirmation(process['source'], process['action'], process['target'])
+    if not(proceed):
+        print('Info: Process not confirmed. Exiting.')
+        quit()
+    else:
+        if execute(process):
+            output = f"{process['source']} {process['action']} to {process['target']} successful."
+            print(len(output) * '*')
+            print(output)
+            print(len(output) * '*')
