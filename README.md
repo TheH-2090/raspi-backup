@@ -20,10 +20,12 @@ General
 - Backups/restores files necessary to maintain the current state  
 - Checks if necessary apps are installed  
 - Verbose on the files processed  
+  
 Backup  
 - Excluding some non-essential folders to save space  
 - Excluding target base directory and mounted drives  
 - Multicore compression using tar and pigz  
+  
 Restore  
 - Deleting target contents to avoid conflicts with existing files  
 - Restore system to the state of the backup  
@@ -34,10 +36,15 @@ It is advised to additionally check fstab before reboot.
   
 ## Installation:  
 ### Prequisits  
-- Python3  
+(usually pre-installed in default Raspberry Pi OS image)  
+- python3  
 - python3-apt  
 - tar  
-- pigz (not pre-installed in default Raspberry Pi OS image)  
+- gz  
+### Recommended  
+(not pre-installed in default Raspberry Pi OS image)  
+- pigz (speed improvement multi threaded compression)  
+- pv (user experience by showing a status bar)  
   
 ### Usage:  
 Download raspi-backup.py.  
