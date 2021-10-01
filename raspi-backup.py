@@ -94,7 +94,7 @@ def final_confirmation(source, action, target):
     max_length = max([len(line) for line in confirmation_message])
     confirmation_message.insert(0, max_length * '*')
     confirmation_message.append(max_length * '*')
-    confirm('\n'.join(confirmation_message))
+    return confirm('\n'.join(confirmation_message))
 
 def check_privileges():
     print('Checking privileges...', end='')
